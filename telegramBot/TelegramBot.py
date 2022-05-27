@@ -30,8 +30,13 @@ def btn_show(msg):
         text="7. English Zone", callback_data="English Zone")
     btn_key8 = InlineKeyboardButton(
         text="8. Coding Zone", callback_data="Coding Zone")
+    btn_key9 = InlineKeyboardButton(
+        text="9. 학생통학버스", callback_data="학생통학버스")
+    btn_key10 = InlineKeyboardButton(
+        text="10. 학교관련 앱", callback_data="학교관련 앱")
+
     mu = InlineKeyboardMarkup(
-        inline_keyboard=[[btn_key, btn_key2, btn_key3, btn_key4], [btn_key5, btn_key6, btn_key7, btn_key8]])
+        inline_keyboard=[[btn_key, btn_key2, btn_key3, btn_key4], [btn_key5, btn_key6, btn_key7, btn_key8], [btn_key9, btn_key10]])
     bot.sendMessage(chat_id, "궁금하신 것을 선택하세요", reply_markup=mu)
 
 
@@ -97,6 +102,18 @@ def query_ans(msg):
 
     elif query_data == "Coding Zone":
         bot.sendMessage(chat_id, "Coding Zone을 선택하셨습니다.")
+
+    elif query_data == "학생통학버스":
+        bot.sendMessage(chat_id, "학생통학버스를 선택하셨습니다.")
+
+    elif query_data == "학교관련 앱":
+        btn_key = InlineKeyboardButton(
+            text="1. 한국외대 앱", callback_data="한국외대 앱")
+        btn_key2 = InlineKeyboardButton(
+            text="2. 한국외대 모바일ID", callback_data="한국외대 모바일ID")
+        mu = InlineKeyboardMarkup(
+            inline_keyboard=[[btn_key, btn_key2]])
+        bot.sendMessage(chat_id, "졸업관련 항목을 선택하셨습니다.", reply_markup=mu)
 
     elif query_data == "학교위치":
         bot.sendMessage(chat_id, text="학교위치를 선택하셨습니다.")
