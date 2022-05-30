@@ -1,0 +1,1 @@
+requests telepot pdfminer pdf2image
