@@ -5,8 +5,11 @@ from telepot.namedtuple import InlineKeyboardMarkup
 from telepot.namedtuple import InlineKeyboardButton
 import pdftoimage  # pdf2image를 활용하여 pdf -> img로 저장하는 모듈
 import pdfcapture  # 저장된 img를 이용하여 원하는 정보부분만 캡쳐하는 모듈
+import os
 
-token = "5382062842:AAFy953rQtlu2l6M0DIpzQCdJXJrWAJemU4"
+access_token = os.environ["BOT_TOKEN"]
+
+token = access_token
 bot = telepot.Bot(token)
 
 chat_id = '5081938343'
