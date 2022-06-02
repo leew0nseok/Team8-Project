@@ -30,15 +30,15 @@ def btn_show(msg):
         text="6. 이수학점", callback_data="이수학점")
     btn_key7 = InlineKeyboardButton(
         text="7. English Zone", callback_data="English Zone")
+    # btn_key8 = InlineKeyboardButton(
+    #     text="8. Coding Zone", callback_data="Coding Zone")
     btn_key8 = InlineKeyboardButton(
-        text="8. Coding Zone", callback_data="Coding Zone")
+        text="8. 교통안내", callback_data="교통안내")
     btn_key9 = InlineKeyboardButton(
-        text="9. 교통안내", callback_data="교통안내")
-    btn_key10 = InlineKeyboardButton(
-        text="10. 학교관련 앱", callback_data="학교관련 앱")
+        text="9. 학교관련 앱", callback_data="학교관련 앱")
 
     mu = InlineKeyboardMarkup(
-        inline_keyboard=[[btn_key, btn_key2, btn_key3, btn_key4], [btn_key5, btn_key6, btn_key7, btn_key8], [btn_key9, btn_key10]])
+        inline_keyboard=[[btn_key, btn_key2, btn_key3], [btn_key4, btn_key5, btn_key6], [btn_key7, btn_key8, btn_key9]])
     bot.sendMessage(chat_id, "원하는 정보를 선택하세요.", reply_markup=mu)
 
 
@@ -69,7 +69,7 @@ def query_ans(msg):
             text="1. 수강신청", callback_data="수강신청")
         btn_key2 = InlineKeyboardButton(
             text="2. 학기당 최대 수강학점", callback_data="수강학점")
-        btn_key3 = InlineKeyboardButton(
+        btn_key3 = InlineKeyboardButtㄴon(
             text="3. 수강신청 유의사항", callback_data="유의사항")
         btn_key4 = InlineKeyboardButton(
             text="4. 수업시간", callback_data="수업시간")
@@ -125,10 +125,10 @@ def query_ans(msg):
             inline_keyboard=[[btn_key, btn_key2]])
         bot.sendMessage(chat_id, "성적을 선택하셨습니다.", reply_markup=mu)
     elif query_data == "성적평가":
-        f = open('', 'rb')
+        f = open('telegramBot\extradatas\성적평가기준.PNG', 'rb')
         bot.sendPhoto(chat_id, f)
     elif query_data == "학점":
-        f = open('C:\\Users\\LEE\\Desktop\\StudyPython\\Datas\\성적.PNG', 'rb')
+        f = open('telegramBot\extradatas\성적.PNG', 'rb')
         bot.sendPhoto(chat_id, f)
 
     # 6.
@@ -145,11 +145,32 @@ def query_ans(msg):
     elif query_data == "교양":
         sendcapture(7, "교양")  # 이미지가 더 보내짐
 
-    elif query_data == "English Zone":
-        bot.sendMessage(chat_id, "English Zone을 선택하셨습니다.")
+    elif query_data == "English Zone":  # 데이터 따로 저장 후 전송
+        btn_key = InlineKeyboardButton(
+            text="1. 이용방법 및 운영시간", callback_data="이용방법")
+        btn_key2 = InlineKeyboardButton(
+            text="2. 의무참여 및 가산점", callback_data="의무참여")
+        btn_key3 = InlineKeyboardButton(
+            text="3. 이용장소 및 시간", callback_data="이용장소")
+        mu = InlineKeyboardMarkup(
+            inline_keyboard=[[btn_key, btn_key2, btn_key3]])
+        bot.sendMessage(chat_id, "English Zone을 선택하셨습니다.", reply_markup=mu)
+    elif query_data == "이용방법":
+        f = open('telegramBot\extradatas\이용방법 및 운영날짜.PNG', 'rb')
+        bot.sendPhoto(chat_id, f)
+    elif query_data == "의무참여":
+        f = open('telegramBot\extradatas\의무참여 및 가산점.PNG', 'rb')
+        bot.sendPhoto(chat_id, f)
+    elif query_data == "이용장소":
+        f = open('telegramBot\extradatas\이용장소 및 시간.PNG', 'rb')
+        g = open('telegramBot\extradatas\e-zone0.PNG', 'rb')
+        h = open('telegramBot\extradatas\e-zone1.PNG', 'rb')
+        bot.sendPhoto(chat_id, f)
+        bot.sendPhoto(chat_id, g)
+        bot.sendPhoto(chat_id, h)
 
-    elif query_data == "Coding Zone":
-        bot.sendMessage(chat_id, "Coding Zone을 선택하셨습니다.")
+    # elif query_data == "Coding Zone":
+    #     bot.sendMessage(chat_id, "Coding Zone을 선택하셨습니다.")
 
     # 9.
     elif query_data == "교통안내":
